@@ -49,6 +49,25 @@ Prints to console - it formats the data and immediately prints it to stdout (you
 Returns nothing - it's a void function
 Automatically adds a newline at the end
 
+<b>fmt.Printf</b>
+Prints to console - it formats the data and immediately prints it to stdout (your terminal)
+Returns nothing - it's a void function
+Does NOT automatically add a newline - you need to add \n manually if you want a newline
+Uses format specifiers like %s, %d, %f, %t, etc. for precise formatting control
+
+**Comparison:**
+- `fmt.Sprintf` → Returns a string (doesn't print)
+- `fmt.Printf` → Prints with formatting (no newline)
+- `fmt.Println` → Prints with automatic newline (less formatting control)
+
+**Example:**
+```go
+name := "John"
+age := 25
+fmt.Printf("Name: %s, Age: %d\n", name, age)  // Prints: Name: John, Age: 25
+fmt.Printf("Age: %d, Name: %s", age, name)    // Prints: Age: 25, Name: John (no newline)
+```
+
 ## Variables in Go
 
 Go provides multiple ways to declare and initialize variables. Here are the different approaches:
