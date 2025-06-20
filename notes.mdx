@@ -37,3 +37,111 @@ func main() {
 
 
 IN go for a file to be executable,it must have a main function and must belong to the main package.
+
+
+<b>fmt.Sprintf</b>
+Returns a string - it formats the data and returns it as a string value
+Does NOT print anything - it just creates the formatted string
+You need to do something with the returned string (like store it in a variable, pass it to another function, etc.)
+
+<b>fmt.Println</b>
+Prints to console - it formats the data and immediately prints it to stdout (your terminal)
+Returns nothing - it's a void function
+Automatically adds a newline at the end
+
+## Variables in Go
+
+Go provides multiple ways to declare and initialize variables. Here are the different approaches:
+
+### 1. Explicit Type Declaration
+```go
+var <variable-name> <variable-type> = <variable-value>
+```
+
+**Example:**
+```go
+var startup string = "Textio SMS service booting up..."
+var messages string = "Sending test message"
+var confirmation string = "Message sent!"
+```
+
+**When to use:** When you want to be explicit about the data type or when the type might not be obvious from the value.
+
+### 2. Short Variable Declaration (Walrus Operator)
+```go
+<variable-name> := <variable-value>
+```
+
+**Example:**
+```go
+fname := "Dalinar"
+lname := "Kholin"
+age := 45
+messageRate := 0.5
+isSubscribed := false
+message := "Sometimes a hypocrite is nothing more than a man in the process of changing."
+```
+
+**When to use:** Most common in Go, especially inside functions. Go automatically infers the type from the value.
+
+### 3. Multiple Variable Declaration
+```go
+<variable-name1>, <variable-name2> := <variable-value1>, <variable-value2>
+```
+
+**Example:**
+```go
+averageOpenRate, displayMessage := 50, "hi there"
+```
+
+**When to use:** When you want to declare and initialize multiple variables in a single line.
+
+### 4. Variable Declaration Without Initialization
+```go
+var <variable-name> <variable-type>
+```
+
+**Example:**
+```go
+var count int
+var name string
+var isActive bool
+```
+
+**When to use:** When you want to declare a variable but initialize it later.
+
+### 5. Multiple Variable Declaration with Types
+```go
+var (
+    <variable-name1> <variable-type1>
+    <variable-name2> <variable-type2>
+)
+```
+
+**Example:**
+```go
+var (
+    firstName string
+    lastName  string
+    age       int
+)
+```
+
+### Key Points:
+- **Scope:** Variables declared with `var` can be used at package level, while `:=` can only be used inside functions
+- **Type Inference:** Go automatically infers types when using `:=` or when initializing with `var`
+- **Zero Values:** Uninitialized variables get their type's zero value (0 for numbers, "" for strings, false for booleans, nil for pointers/slices/maps)
+- **Reassignment:** Use `=` to reassign values to existing variables
+- **Constants:** Use `const` instead of `var` for values that won't change
+
+### Best Practices:
+1. Use `:=` for local variables inside functions
+2. Use `var` for package-level variables
+3. Be explicit about types when it improves code readability
+4. Use meaningful variable names that describe their purpose
+
+
+
+Now if a variable is declared with an uppercase letter,it is considered a public variable and can be accessed from other packages,like it can be exported to other packages.
+
+
