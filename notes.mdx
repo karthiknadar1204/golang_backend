@@ -164,3 +164,54 @@ var (
 Now if a variable is declared with an uppercase letter,it is considered a public variable and can be accessed from other packages,like it can be exported to other packages.
 
 
+
+
+
+
+## User input in go
+
+``` go
+fmt.Println("Enter your name:")
+var name string
+fmt.Scanln(&name)
+fmt.Println("Hello,", name)
+```
+- now we declare a variable 'name' of type string to store the user input.
+- we use fmt.Println to print the message to the user asking for their name.
+- we use fmt.Scanln(&name) to read the user input and store it in the variable 'name'.
+- &name is a pointer to the variable 'name' which means that the value of the variable 'name' is stored in the memory address of the variable 'name'.
+- we use fmt.Println to print the message to the user saying hello and the name they entered.
+
+Now keep in mind the scan/scanln reads until the first white space character,say i give input as "John Doe",then the scan/scanln will read only "John" and not "John Doe".
+TO overcome this,we will use bufio packages NewScanner or ReadString to read the user input.
+
+``` go
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Println("Enter your name:")
+	name, _ := reader.ReadString('\n')
+	fmt.Println("Hello,", name)
+```
+bufio.NewReader(os.Stdin) creates a new reader that reads from the standard input (console) i.e os.Stdin.
+reader.ReadString('\n') reads the user input until the newline character is encountered,this allows us to read the entire input including spaces.
+the _ is a blank identifier,it is used to discard the error value returned by the ReadString function.
+the name variable will now contain the entire input string including the newline character.
+
+
+
+A buffered reader is a type of reader that reads data from an underlying source,such as a file or standard input(keyboard),and stores
+the data in a buffer.
+The buffer is a teporary storage area in memory. BUffered readers are commonly used to improve the performance of input/output operations.
+
+
+<b>bufio.NewReader(os.Stdin)</b>
+This creates a new buffered reader that reads from the standard input (console) i.e os.Stdin.
+<b>reader.ReadString('\n')</b>
+ReadString reads until the first occurrence of the delimiter (in this case, '\n') or until the input is exhausted.
+It returns the data read as a string, and an error if any occurred during the read operation.
+The returned string includes the delimiter character.
+
+
+
+
+
+
