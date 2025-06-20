@@ -1,0 +1,39 @@
+1. we have to first initialise a project using the follwoing format of command
+``` go mod init <project-name>
+```
+this will create a go.mod file in the root of the project.
+
+2. then we have to create a main.go file in the root of the project.
+
+``` go
+package main
+
+func main() {
+    fmt.Println("Hello, World!")
+}
+```
+
+3. then we have to run the following command to run the project
+``` go run main.go
+```
+
+## packages
+- In go packages are used instead of classes,there is no concept of oops in go.
+- Each package in go is essentially a directory in your workspace. Each go file must belong to some package and
+  it should start with the key word <b>package</b> followed by the name of the package.
+- The main package is a special package in GO.An executable program must have a main package.
+- IN go,the concept of package is closely tied to the directory structure of the project.
+- All go files in a single directory must belong to the same package.
+- The package name is the name of the directory that contains the go files.
+-  matlab ek folder mai saare files hai,toh us folder ke saare files ka package name has to be the same.
+
+- now i created a new folder called myutil and created a new file called myutil.go in it.
+-  now to import the function present in myutil/myutil.go in main.go,we have to use the following convention,like 
+   in the beginning,we created a module using go mod init <project-name>,so now we have to import the package using the following format
+   ``` go
+   import "project-name/myutil"
+   ```
+   and then we can use the function present in myutil/myutil.go in main.go.
+
+
+IN go for a file to be executable,it must have a main function and must belong to the main package.
