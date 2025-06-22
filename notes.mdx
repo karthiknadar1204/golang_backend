@@ -215,3 +215,72 @@ The returned string includes the delimiter character.
 
 
 
+
+URL in Golang
+in go the 'net/url' package provides functionalities to parse,construct and manipulate urls
+urls are used to identify resources on the internet such as web pages,images and files.
+
+1) parsing urls
+The url.Parse function takes a string representation of a url and returns a url object(url.URL struct).
+This allows you to breakdown a url into its individual components such as scheme,host,path and query parameters.
+
+2) accessing url components
+
+
+
+
+
+
+``` go
+urlString := "https://www.google.com/search?q=golang"
+url,err := url.Parse(urlString)
+if err != nil {
+	fmt.Println("error",err)
+}
+fmt.Println(url.Scheme)
+fmt.Println(url.Host)
+fmt.Println(url.Path)
+```
+
+
+
+JSON in golang
+in go,encoding/json is used to encode and decode json data.
+JSON is a lightweight data interchange format that is easy for humans to read and write and easy for machines to parse and generate.
+
+
+How to define and use JSON in go:
+1) defining a struct to represent the json data
+Define a struct the represents the json data structure.
+each field in the struct should have a tag that specifies the json key name.
+
+``` go
+type User struct {
+	ID int `json:"id"`
+	Name string `json:"name"`
+	Email string `json:"email"`
+}
+```
+
+2)Marshalling(encoding):
+use json.Marshal to convert a struct into a json encoded byte-array.
+
+``` go
+user := User{ID: 1, Name: "John Doe", Email: "john.doe@example.com"}
+jsonData, err := json.Marshal(user)
+if err != nil {
+	fmt.Println("error",err)
+}
+```
+
+3)Unmarshalling(decoding):
+use json.Unmarshal to convert a json encoded byte-array into a struct.
+
+``` go
+var user User
+json.Unmarshal(jsonData, &user)
+```
+
+
+
+
