@@ -281,6 +281,20 @@ var user User
 json.Unmarshal(jsonData, &user)
 ```
 
+sync.WaitGroup in Golang
+- sync.WaitGroup is a synchronizastion primitive in go that us used to wait for a collection of go routines to finish their execution.
+- It allows you to wait for all the go routines to finish their execution before the main function exits.
+
+How to create a simple SyncGroup
+1. Your create a Sync.WaitGroup variable to keep trackof number of go routines you want to wait for.
+2. For each go routine you start,you increment the WaitGroup counter by 1 using the ADD method.
+3. Inside each goroutine,you call the Done method on the WaitGroup to signal that goroutine has finished its work to decrement the WaitGroup counter by 1.
+4. Finally you call WAIT 
+
+
+
+
+
 
 
 
